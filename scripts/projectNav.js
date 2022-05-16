@@ -1,18 +1,35 @@
 const navDots = document.querySelectorAll('.dot')
 const slider = document.querySelector('.slider')
 
-const changeActive = () => {
-    let counter;    
+const translateImage = () => {
+    let removeActive = () => {
+        let activeDot = document.querySelector('.active')
+        activeDot.classList.remove('active')
+    }
     navDots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
-            let activeDot = document.querySelector('.active')
+            removeActive()
             let imageWidth = document.querySelector('.project-images').offsetWidth
-            activeDot.classList.remove('active')
             dot.classList.add('active')
-            counter = index;
-            slider.style.transform = `translateX(calc((${imageWidth}px + 3rem)*(-${counter})))`
+            slider.style.transform = `translateX(calc((${imageWidth}px + 3rem)*(-${index})))`
+            console.log(index)
         })
     })
+
+    let counter = 0;
+
+    let automatic = () => {
+        setTimeout(() => {
+            removeActive()
+            counter++;
+            let imageWidth = document.querySelector('.project-images').offsetWidth
+            slider.style.transform = `translateX(calc((${imageWidth}px + 3rem)*(-${counter})))`
+            navDots[counter].classList.add('active')
+            if (counter === 2) counter = -1
+            automatic()
+        }, 3000)
+    }
+    automatic()
 }
 
-changeActive()
+export default translateImage;
