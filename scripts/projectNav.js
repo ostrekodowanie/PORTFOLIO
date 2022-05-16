@@ -3,16 +3,17 @@ const slider = document.querySelector('.slider')
 
 const translateImage = () => {
 
+    const imageWidth = document.querySelector('.project-images').clientWidth
+
     // translating based on the active dot
 
-    let removeActive = () => {
+    const removeActive = () => {
         let activeDot = document.querySelector('.active')
         activeDot.classList.remove('active')
     }
     navDots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
             removeActive()
-            let imageWidth = document.querySelector('.project-images').offsetWidth
             dot.classList.add('active')
             slider.style.transform = `translateX(calc((${imageWidth}px + 3rem)*(-${index})))`
         })
@@ -23,10 +24,9 @@ const translateImage = () => {
     let counter = 0;
 
     let automatic = () => {
-        setTimeout(() => {
+        window.setTimeout(() => {
             removeActive()
             counter++;
-            let imageWidth = document.querySelector('.project-images').offsetWidth
             slider.style.transform = `translateX(calc((${imageWidth}px + 3rem)*(-${counter})))`
             navDots[counter].classList.add('active')
             if (counter === 2) counter = -1
@@ -35,32 +35,29 @@ const translateImage = () => {
     }
     automatic()
 
-    // swiping event
-
-    
+    let multiplier = 0;
 
     const setSwipe = () => {
-        let startX = 0;
-        let endX = 0;
-
+        
+        var startX, 
+            endX;
+    
         slider.addEventListener('touchstart', (e) => {
-            let touch = e.changedTouches
-            startX = touch[0].screenX
+            startX = e.touches[0].clientX;
         })
-
-        slider.addEventListener('touchend', (e) => {
-            let touches = [...e.changedTouches]
-            touches.forEach((touch) => {
-                endX = touch.screenX
-                if (startX > endX) {
-                    removeActive()
-                    counter++;
-                    navDots[counter].classList.add('active')
-                    let imageWidth = document.querySelector('.project-images').offsetWidth
-                    slider.style.transform = `translateX(calc((${imageWidth}px + 3rem)*(-1)))`
-                }
-            })
-            setSwipe()
+        slider.addEventListener('touchmove', (e) => {
+            endX = e.touches[0].clientX;
+        })
+        slider.addEventListener('touchend', () => {
+            if (startX > endX) {
+                if(multiplier === 2) multiplier = -1
+                multiplier++;
+                window.clearTimeout
+                counter = multiplier
+                slider.style.transform = `translateX(calc((${imageWidth}px + 3rem)*(-${multiplier})))`
+                removeActive()
+                navDots[multiplier].classList.add('active')
+            }
         })
     }
     setSwipe()
