@@ -7,7 +7,6 @@ const changeActive = () => {
         dot.addEventListener('click', () => {
             let activeDot = document.querySelector('.active')
             let imageWidth = document.querySelector('.project-images').offsetWidth
-            console.log(imageWidth)
             activeDot.classList.remove('active')
             dot.classList.add('active')
             counter = index;
