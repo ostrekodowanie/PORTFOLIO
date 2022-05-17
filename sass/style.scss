@@ -86,9 +86,15 @@ main {
 }
 
 .burger-active {
+    position: relative;
+    .line {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 45%;
+    }
     .line:first-child {
-        transform: rotate(45deg) translate(3px, -4px);
-        transform-origin: top left;
+        transform: rotate(45deg);
         transition: all 200ms ease 50ms;
     }
     .line:nth-child(2) {

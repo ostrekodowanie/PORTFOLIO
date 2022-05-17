@@ -78,9 +78,17 @@ main {
   transform: translateY(100%);
 }
 
+.burger-active {
+  position: relative;
+}
+.burger-active .line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 45%;
+}
 .burger-active .line:first-child {
-  transform: rotate(45deg) translate(3px, -4px);
-  transform-origin: top left;
+  transform: rotate(45deg);
   transition: all 200ms ease 50ms;
 }
 .burger-active .line:nth-child(2) {
