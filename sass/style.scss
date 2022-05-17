@@ -75,7 +75,8 @@ main {
         background-color: $primary;
         color: $background;
     }
-    a:hover {
+    a:hover,
+    a:checked {
         background-color: $secondary;
         color: $background;
     }
@@ -133,6 +134,7 @@ main {
 }
 
 .landing-wrapper {
+    position: relative;
     display: flex;
     flex-direction: column;
 }
@@ -140,6 +142,7 @@ main {
 .landing-main {
     flex-grow: 1;
     background: url('../images/landingBackground.png') no-repeat;
+    background-size: cover;
     background-color: $primaryDark;
     display: flex;
     justify-content: center;
@@ -147,7 +150,7 @@ main {
 }
 
 .main-titles {
-    margin-bottom: 4rem;
+    margin-bottom: 1.4in;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -183,6 +186,11 @@ main {
 
 .landing-footer {
     min-height: 2rem;
+    position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    background-color: $background;
     padding: 0 8vw;
     text-align: center;
     display: flex;
@@ -207,6 +215,7 @@ main {
 
 .section-wrapper {
     background: url('../images/sectionBackground.png') no-repeat;
+    background-size: cover;
     background-color: $primaryDark;
     position: relative;
     padding-bottom: 1in;

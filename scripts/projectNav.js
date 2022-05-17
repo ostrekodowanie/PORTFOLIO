@@ -20,22 +20,6 @@ const translateImage = () => {
         })
     })
 
-    // automatic translating in every 3 seconds
-
-    // let counter = 0;
-
-    // let automatic = () => {
-    //     window.setTimeout(() => {
-    //         removeActive()
-    //         counter++;
-    //         slider.style.transform = `translateX(calc((${imageWidth}px + 3rem)*(-${counter})))`
-    //         navDots[counter].classList.add('active')
-    //         if (counter === 2) counter = -1
-    //         automatic()
-    //     }, 3000)
-    // }
-    // automatic()
-
     let changePosition = () => {
         removeActive()
         navDots[position].classList.add('active')
@@ -43,8 +27,6 @@ const translateImage = () => {
     }
 
     let position = 0;
-
-    var check_if_swiped = false;
 
     var startX, 
         endX;
@@ -60,13 +42,11 @@ const translateImage = () => {
         if (startX > endX) {
             position++;
             if (position === 3) position = 0
-            check_if_swiped = true
         }
 
         if (endX > startX) {
             position--;
             if(position === -1 ) position = 2
-            check_if_swiped = true
         }
 
         changePosition()

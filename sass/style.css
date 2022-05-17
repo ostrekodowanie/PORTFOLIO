@@ -69,7 +69,8 @@ main {
   background-color: #13315C;
   color: #EEF4ED;
 }
-.navbar a:hover {
+.navbar a:hover,
+.navbar a:checked {
   background-color: #8DA9C4;
   color: #EEF4ED;
 }
@@ -125,6 +126,7 @@ main {
 }
 
 .landing-wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
 }
@@ -132,6 +134,7 @@ main {
 .landing-main {
   flex-grow: 1;
   background: url("../images/landingBackground.png") no-repeat;
+  background-size: cover;
   background-color: #0B2545;
   display: flex;
   justify-content: center;
@@ -139,7 +142,7 @@ main {
 }
 
 .main-titles {
-  margin-bottom: 4rem;
+  margin-bottom: 1.4in;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -175,6 +178,11 @@ main {
 
 .landing-footer {
   min-height: 2rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #EEF4ED;
   padding: 0 8vw;
   text-align: center;
   display: flex;
@@ -199,6 +207,7 @@ main {
 
 .section-wrapper {
   background: url("../images/sectionBackground.png") no-repeat;
+  background-size: cover;
   background-color: #0B2545;
   position: relative;
   padding-bottom: 1in;
