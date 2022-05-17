@@ -36,7 +36,15 @@ const translateImage = () => {
     // }
     // automatic()
 
-    let multiplier = 0;
+    let changePosition = () => {
+        removeActive()
+        navDots[position].classList.add('active')
+        slider.style.transform = `translateX(calc((${imageWidth}px + 3rem)*(-${position})))`
+    }
+
+    let position = 0;
+
+    var check_if_swiped = false;
 
     var startX, 
         endX;
@@ -48,22 +56,29 @@ const translateImage = () => {
         endX = e.touches[0].clientX;
     })
     slider.addEventListener('touchend', () => {
+        
         if (startX > endX) {
-            multiplier++;
-            if (multiplier === 3) multiplier = 0
+            position++;
+            if (position === 3) position = 0
+            check_if_swiped = true
         }
 
         if (endX > startX) {
-            multiplier--;
-            if(multiplier === -1 ) multiplier = 2
+            position--;
+            if(position === -1 ) position = 2
+            check_if_swiped = true
         }
 
-        removeActive()
-        navDots[multiplier].classList.add('active')
-        slider.style.transform = `translateX(calc((${imageWidth}px + 3rem)*(-${multiplier})))`
+        changePosition()
     })
 
-    
+    const automatic = () => {
+        position++
+        if(position === 3) position = 0
+        changePosition()
+    }
+
+    setInterval(automatic, 3000)
 }
 
 export default translateImage;
