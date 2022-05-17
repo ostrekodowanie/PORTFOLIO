@@ -62,22 +62,44 @@ main {
     background-color: $background;
     transition: transform 350ms ease;
     a {
+        opacity: 0.8;
+        transition: all 150ms ease;
         color: $font;
+        padding: .3em .8em;
+        border-radius: .8em;
         text-decoration: none;
         font-weight: 500;
         font-size: .95em;
     }
     a:first-child {
-        padding: .3em 1.2em;
         background-color: $primary;
         color: $background;
-        border-radius: .8em;
+    }
+    a:hover {
+        background-color: $secondary;
+        color: $background;
     }
 }
 
 .nav-active {
     transform: translateY(100%);
 }
+
+.burger-active {
+    .line:first-child {
+        transform: rotate(45deg) translate(3px, -4px);
+        transform-origin: top left;
+        transition: all 200ms ease 50ms;
+    }
+    .line:nth-child(2) {
+        transform: rotate(-45deg);
+        transition: all 200ms ease 50ms;
+    }
+    .line:last-child {
+        opacity: 0;
+    }
+}
+
 
 .logo {
     display: flex;
@@ -211,6 +233,7 @@ main {
         margin-top: 2rem;
         padding: 1rem 0;
         text-align: center;
+        max-width: 90%;
         line-height: 180%;
         border-bottom: 3px solid $primary;
         border-top: 3px solid $primary;

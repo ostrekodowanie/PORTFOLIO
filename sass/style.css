@@ -56,20 +56,39 @@ main {
   transition: transform 350ms ease;
 }
 .navbar a {
+  opacity: 0.8;
+  transition: all 150ms ease;
   color: #000000;
+  padding: 0.3em 0.8em;
+  border-radius: 0.8em;
   text-decoration: none;
   font-weight: 500;
   font-size: 0.95em;
 }
 .navbar a:first-child {
-  padding: 0.3em 1.2em;
   background-color: #13315C;
   color: #EEF4ED;
-  border-radius: 0.8em;
+}
+.navbar a:hover {
+  background-color: #8DA9C4;
+  color: #EEF4ED;
 }
 
 .nav-active {
   transform: translateY(100%);
+}
+
+.burger-active .line:first-child {
+  transform: rotate(45deg) translate(3px, -4px);
+  transform-origin: top left;
+  transition: all 200ms ease 50ms;
+}
+.burger-active .line:nth-child(2) {
+  transform: rotate(-45deg);
+  transition: all 200ms ease 50ms;
+}
+.burger-active .line:last-child {
+  opacity: 0;
 }
 
 .logo {
@@ -205,6 +224,7 @@ main {
   margin-top: 2rem;
   padding: 1rem 0;
   text-align: center;
+  max-width: 90%;
   line-height: 180%;
   border-bottom: 3px solid #13315C;
   border-top: 3px solid #13315C;
