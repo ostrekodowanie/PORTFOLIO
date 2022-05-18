@@ -1,8 +1,9 @@
 const navDots = document.querySelectorAll('.dot')
 const slider = document.querySelector('.slider')
 
-const translateImage = (imageWidth) => {
+const translateImage = () => {
 
+    let imageWidth = document.querySelector('.project-images').clientWidth
     let position = 0    // current position
     let timer;
 
@@ -75,13 +76,4 @@ const translateImage = (imageWidth) => {
     setTimer()
 }
 
-export default function slide() {
-    let projectWidth = document.querySelector('.project-images').clientWidth
-    translateImage(projectWidth)
-
-    window.addEventListener('resize', () => {
-        slider.style.transform = "translateX(0%)"
-        let projectWidth = document.querySelector('.project-images').clientWidth
-        translateImage(projectWidth)
-    })
-}
+translateImage()
