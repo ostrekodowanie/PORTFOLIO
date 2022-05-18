@@ -1,9 +1,9 @@
 import navMove from "./navbar.js";
 import setHeight from "./landingHeight.js";
-import translateImage from "./projectNav.js";
+import slide from "./projectSlider.js";
 
 window.addEventListener('DOMContentLoaded', () => {
-    translateImage();
+    slide();
 })
 
 navMove();

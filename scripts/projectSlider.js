@@ -1,9 +1,10 @@
 const navDots = document.querySelectorAll('.dot')
 const slider = document.querySelector('.slider')
 
-const translateImage = () => {
+const translateImage = (imageWidth) => {
 
-    const imageWidth = document.querySelector('.project-images').clientWidth
+    let position = 0    // current position
+    let timer;
 
     // translating based on the active dot
 
@@ -12,21 +13,26 @@ const translateImage = () => {
         activeDot.classList.remove('active')
     }
 
-    navDots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            removeActive()
-            dot.classList.add('active')
-            slider.style.transform = `translateX(calc((${imageWidth}px + 3rem)*(-${index})))`
-        })
-    })
-
-    let changePosition = () => {
+    const changePosition = () => {
         removeActive()
         navDots[position].classList.add('active')
         slider.style.transform = `translateX(calc((${imageWidth}px + 3rem)*(-${position})))`
     }
 
-    let position = 0;
+    const stopTimer = () => {
+        clearInterval(timer)
+    }
+
+    navDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            position = index
+            changePosition()
+            stopTimer()
+            setTimer() 
+        })
+    })
+
+    // swiper
 
     var startX, 
         endX;
@@ -36,6 +42,7 @@ const translateImage = () => {
     })
     slider.addEventListener('touchmove', (e) => {
         endX = e.touches[0].clientX;
+        stopTimer()
     })
     slider.addEventListener('touchend', () => {
         
@@ -50,7 +57,10 @@ const translateImage = () => {
         }
 
         changePosition()
+        setTimer()
     })
+
+    // constant changing
 
     const automatic = () => {
         position++
@@ -58,7 +68,20 @@ const translateImage = () => {
         changePosition()
     }
 
-    setInterval(automatic, 3000)
+    const setTimer = () => {
+        timer = setInterval(automatic, 3000)
+    }
+
+    setTimer()
 }
 
-export default translateImage;
+export default function slide() {
+    let projectWidth = document.querySelector('.project-images').clientWidth
+    translateImage(projectWidth)
+
+    window.addEventListener('resize', () => {
+        slider.style.transform = "translateX(0%)"
+        let projectWidth = document.querySelector('.project-images').clientWidth
+        translateImage(projectWidth)
+    })
+}
