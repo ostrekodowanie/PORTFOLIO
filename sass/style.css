@@ -157,6 +157,7 @@ main {
   gap: 1rem;
 }
 .main-titles h1 span {
+  transition: all 150ms ease;
   text-align: center;
   margin-right: 3rem;
   color: #0B2545;
@@ -201,9 +202,16 @@ main {
   min-width: -moz-max-content;
   min-width: max-content;
   padding: 0.4em;
-  color: #134074;
-  border: 1px solid #134074;
+  color: #13315C;
+  border: 1px solid #13315C;
   border-radius: 0.4em;
+  transition: all 250ms ease 50ms;
+}
+.landing-footer a:hover,
+.landing-footer a:checked {
+  color: #EEF4ED;
+  background-color: rgba(19, 49, 92, 0.9);
+  border-color: rgba(19, 49, 92, 0.9);
 }
 
 .section-wrapper {
@@ -278,6 +286,12 @@ main {
   text-align: center;
 }
 
+.slider-wrapper {
+  overflow-x: hidden;
+  overflow-y: visible;
+  padding-bottom: 3rem;
+}
+
 .slider {
   transition: transform 400ms ease;
   display: flex;
@@ -301,7 +315,7 @@ main {
 
 .nav-dots {
   min-width: 4.5rem;
-  margin-top: 4rem;
+  margin-top: 1.4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;

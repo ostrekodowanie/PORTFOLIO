@@ -8,7 +8,7 @@ function titleAnimation() {
         if (index === 2) {
             gsap.from(title, {
                 x: '-10%',
-                duration: 0.4,
+                duration: 0.6,
                 ease: Power1.easeOut,
                 opacity: 0,
                 delay: titleDelay + 0.05
@@ -17,12 +17,12 @@ function titleAnimation() {
         }
         gsap.from(title, {
             x: '-20%',
-            duration: 0.4,
+            duration: 0.6,
             ease: Power1.easeOut,
             opacity: 0,
             delay: titleDelay
         })
-        titleDelay = titleDelay + 0.2
+        titleDelay = titleDelay + 0.4
     })
 }
     
@@ -36,5 +36,6 @@ const timeline = gsap.timeline({ defaults: {
 timeline
     .from(subtitle, {
         duration: 1,
+        delay: 1.5,
         opacity: 0
     })

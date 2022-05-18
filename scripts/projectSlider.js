@@ -73,6 +73,13 @@ const translateImage = (imageWidth) => {
     }
 
     setTimer()
+
+    window.addEventListener('resize', () => {
+        stopTimer()
+        setTimer()
+        imageWidth = document.querySelector('.project-images').clientWidth
+        slider.style.transform = `translateX(0)`
+    })
 }
 
 
