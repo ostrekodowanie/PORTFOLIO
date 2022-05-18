@@ -25,6 +25,22 @@ body {
     z-index: -99;
 }
 
+.loading-screen {
+    position: fixed;
+        left: 0;
+        right: 0;
+    background-color: $background;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 800ms ease;
+    pointer-events: none;
+}
+
+.loading-inactive {
+    opacity: 0;
+}
+
 .wrapper {
     position: relative;
     z-index: -100;

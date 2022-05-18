@@ -1,7 +1,7 @@
 const titleLines = gsap.utils.toArray('.main-titles h1 span')
 const subtitle = document.querySelector('.main-titles h2')
 
-let titleDelay = 0.4;
+let titleDelay = 1.4;
 
 function titleAnimation() {
     titleLines.forEach((title, index) => {
@@ -36,6 +36,6 @@ const timeline = gsap.timeline({ defaults: {
 timeline
     .from(subtitle, {
         duration: 1,
-        delay: 1.5,
+        delay: 2.5,
         opacity: 0
     })
