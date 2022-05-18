@@ -284,12 +284,14 @@ main {
 .project p {
   margin: 3em 0 0 0;
   text-align: center;
+  max-width: 95%;
 }
 
 .slider-wrapper {
   overflow-x: hidden;
   overflow-y: visible;
   padding-bottom: 3rem;
+  max-width: 4in;
 }
 
 .slider {

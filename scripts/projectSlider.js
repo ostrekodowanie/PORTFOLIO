@@ -11,11 +11,11 @@ const translateImage = (imageWidth) => {
     const removeActive = () => {
         let activeDot = document.querySelector('.active')
         activeDot.classList.remove('active')
+        navDots[position].classList.add('active')
     }
 
     const changePosition = () => {
         removeActive()
-        navDots[position].classList.add('active')
         slider.style.transform = `translateX(calc((${imageWidth}px + 3rem)*(-${position})))`
     }
 
@@ -77,7 +77,9 @@ const translateImage = (imageWidth) => {
     window.addEventListener('resize', () => {
         stopTimer()
         setTimer()
+        removeActive()
         imageWidth = document.querySelector('.project-images').clientWidth
+        position = 0
         slider.style.transform = `translateX(0)`
     })
 }
