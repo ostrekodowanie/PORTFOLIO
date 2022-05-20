@@ -286,9 +286,13 @@ main {
 .portfolio {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
-.portfolio > p {
+
+.portfolio-paragraph {
+  display: flex;
+  justify-content: center;
+}
+.portfolio-paragraph p {
   color: #EEF4ED;
   text-align: center;
   max-width: 90%;
