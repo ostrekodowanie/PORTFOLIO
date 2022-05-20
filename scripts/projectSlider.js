@@ -44,13 +44,13 @@ const translateImage = (project, direction) => {
     slider.addEventListener('touchstart', (e) => {
         startX = e.touches[0].clientX;
         stopTimer()
+        window.addEventListener('scroll', e => {
+            e.preventDefault()
+        })
     })
     slider.addEventListener('touchmove', (e) => {
         endX = e.touches[0].clientX;
         stopTimer()
-        document.addEventListener('scroll', e => {
-            e.preventDefault()
-        })
     })
     slider.addEventListener('touchend', (e) => {
         
