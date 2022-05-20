@@ -20,7 +20,6 @@ const translateImage = (project, direction) => {
     const changePosition = () => {
         removeActive()
         slider.style.transform = `translateX(calc((${imageWidth}px + 3rem)*${position}*${direction}))`
-        console.log(position)
     }
 
     const stopTimer = () => {
@@ -85,9 +84,9 @@ const translateImage = (project, direction) => {
     window.addEventListener('resize', () => {
         stopTimer()
         setTimer()
-        removeActive()
         imageWidth = document.querySelector('.project-images').clientWidth
         position = 0
+        removeActive()
         slider.style.transform = `translateX(0)`
     })
 }
