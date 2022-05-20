@@ -76,15 +76,14 @@ const translateImage = (project, direction) => {
     }
 
     const setTimer = () => {
-        timer = setInterval(automatic, 3000)
+        setTimeout(() => {
+            timer = setInterval(automatic, 3000)
+        }, 2000)
     }
 
     setTimer()
 
-    let pageHeight = window.document.documentElement.clientHeight
-
     window.addEventListener('resize', () => {
-        
         stopTimer()
         setTimer()
         imageWidth = document.querySelector('.project-images').clientWidth
@@ -95,11 +94,9 @@ const translateImage = (project, direction) => {
 
 
 window.addEventListener('load', () => {
-    setTimeout(() => {
-        // business project slider
-        translateImage('business', -1)
+    // business project slider
+    translateImage('business', -1)
 
-        //gift center project slider
-        translateImage('gift-center', -1)
-    }, 3000)
+    //gift center project slider
+    translateImage('gift-center', -1)
 })
