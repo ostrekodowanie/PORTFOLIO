@@ -25,6 +25,11 @@ body {
     z-index: -99;
 }
 
+img {
+    max-width: 100%;
+    display: block;
+}
+
 .loading-screen {
     position: fixed;
         left: 0;
@@ -263,6 +268,11 @@ main {
     padding: 1in 8vw 0 8vw;
     position: relative;
     z-index: 1;
+    h2 {
+        color: rgba($background, 0.9);
+        text-align: center;
+        margin: 0 0 1.5em 0;
+    }
 }
 
 .description {
@@ -286,10 +296,13 @@ main {
 .portfolio {
     display: flex;
     flex-direction: column;
-    h2 {
-        color: rgba($background, 0.9);
+    align-items: center;
+    & > p {
+        color: $background;
         text-align: center;
-        margin: 0 0 1.5em 0;
+        max-width: 90%;
+        line-height: 170%;
+        margin: 1in 0 1in 0;
     }
 }
 
@@ -301,7 +314,6 @@ main {
     margin: 0 -8vw 0 -8vw;
     padding: 5rem 10vw;
     min-height: 50vh;
-    clip-path: polygon(0 0, 100% 8vw, 100% calc(100% - 8vw), 0 100%);
     img {
         max-width: min(95%, 3.5in);
     }
@@ -310,6 +322,14 @@ main {
         text-align: center;
         max-width: 95%;
     }
+}
+
+.project.business {
+    clip-path: polygon(0 0, 100% 8vw, 100% calc(100% - 8vw), 0 100%);
+}
+
+.project.gift-center {
+    clip-path: polygon(0 8vw, 100% 0, 100% 100%, 0 calc(100% - 8vw));
 }
 
 .slider-wrapper {
@@ -356,6 +376,63 @@ main {
     }
     div.active {
         background-color: $primary;
+    }
+}
+
+// contact-form
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2 {
+        font-weight: 500;
+        
+        font-size: 1.4rem;
+    }
+}
+
+.contact-form {
+    position: relative;
+    display: grid;
+    row-gap: 1.5rem;
+    button {
+        background-color: $primary;
+        color: $background;
+        border: 3px solid $primaryDark;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        border-radius: 1em;
+        padding: .7em;
+        transition: background-color 150ms ease;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba($primary, 0.6);
+        }
+
+        img {
+            max-height: .9em;
+            margin-left: .5em;
+        }
+    }
+}
+
+.contact-label {
+    input,
+    textarea {
+        width: 100%;
+        border: 3px solid $primaryDark;
+        border-radius: 1em;
+        padding: .7em 1em;
+        font-size: 1rem;
+    }
+
+    textarea {
+        min-height: 2in;
     }
 }
 

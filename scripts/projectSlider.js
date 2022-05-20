@@ -1,22 +1,24 @@
-const navDots = document.querySelectorAll('.dot')
 const slider = document.querySelector('.slider')
 
-const translateImage = (imageWidth) => {
+const translateImage = (project, direction) => {
 
     let position = 0    // current position
     let timer;
-
+    let imageWidth = document.querySelector('.project-images').clientWidth
+    
+    const slider = document.querySelector(`.slider.${project}`)
+    const navDots = document.querySelectorAll(`.dot.${project}`)
     // translating based on the active dot
 
     const removeActive = () => {
-        let activeDot = document.querySelector('.active')
+        let activeDot = document.querySelector(`.active.${project}`)
         activeDot.classList.remove('active')
         navDots[position].classList.add('active')
     }
 
     const changePosition = () => {
         removeActive()
-        slider.style.transform = `translateX(calc((${imageWidth}px + 3rem)*(-${position})))`
+        slider.style.transform = `translateX(calc((${imageWidth}px + 3rem)*${position}*${direction}))`
     }
 
     const stopTimer = () => {
@@ -38,14 +40,22 @@ const translateImage = (imageWidth) => {
         endX;
 
     slider.addEventListener('touchstart', (e) => {
+        
+        
         startX = e.touches[0].clientX;
+        e.preventDefault()
+        e.stopImmediatePropagation()
     })
     slider.addEventListener('touchmove', (e) => {
         endX = e.touches[0].clientX;
+        console.log(e.touches[0].clientX)
         stopTimer()
+        e.preventDefault()
+        e.stopImmediatePropagation()
     })
-    slider.addEventListener('touchend', () => {
-        
+    slider.addEventListener('touchend', (e) => {
+        e.preventDefault()
+        e.stopImmediatePropagation()
         if (startX > endX) {
             position++;
             if (position === 3) position = 0
@@ -87,6 +97,9 @@ const translateImage = (imageWidth) => {
 
 
 window.addEventListener('load', () => {
-    let projectWidth = document.querySelector('.project-images').clientWidth
-    translateImage(projectWidth)
+    // business project slider
+    translateImage('business', -1)
+
+    //gift center project slider
+    translateImage('gift-center', -1)
 })
