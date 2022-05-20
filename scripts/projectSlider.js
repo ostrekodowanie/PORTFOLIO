@@ -20,11 +20,22 @@ const translateImage = (project, direction) => {
     const changePosition = () => {
         removeActive()
         slider.style.transform = `translateX(calc((${imageWidth}px + 3rem)*${position}*${direction}))`
+        console.log(position)
     }
+
+    const setTimer = () => {
+        setTimeout(() => {
+            timer = setInterval(automatic, 3000)
+        }, 2000)
+    }
+
+    setTimer()
 
     const stopTimer = () => {
         clearInterval(timer)
     }
+
+    // changing through dots
 
     navDots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
@@ -32,6 +43,26 @@ const translateImage = (project, direction) => {
             changePosition()
             stopTimer()
             setTimer() 
+        })
+    })
+
+    // changing through arrows
+
+    const arrows = document.querySelectorAll(`.project.${project} .arrow`)
+
+    arrows.forEach((arrow, index) => {
+        arrow.addEventListener('click', () => {
+            if (index === 1) {
+                position--
+                if (position === -1) position = 2
+            }
+            if (index === 0 ) {
+                position++
+                if(position === 3) position = 0
+            }
+            changePosition()
+            stopTimer()
+            setTimer()
         })
     })
 
@@ -76,14 +107,6 @@ const translateImage = (project, direction) => {
         changePosition()
     }
 
-    const setTimer = () => {
-        setTimeout(() => {
-            timer = setInterval(automatic, 3000)
-        }, 2000)
-    }
-
-    setTimer()
-
     let callback = () => {
         imageWidth = document.querySelector('.project-images').clientWidth
         changePosition()
@@ -102,5 +125,5 @@ window.addEventListener('load', () => {
     translateImage('business', -1)
 
     //gift center project slider
-    translateImage('gift-center', -1)
+    
 })

@@ -172,6 +172,7 @@ main {
 
 .main-titles {
   margin-bottom: 1.4in;
+  margin-top: 1rem;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -346,6 +347,14 @@ main {
           clip-path: polygon(0 8vw, 100% 0, 100% 100%, 0 calc(100% - 8vw));
 }
 
+.arrow {
+  display: none;
+}
+
+.slider-container {
+  position: relative;
+}
+
 .slider-wrapper {
   overflow-x: hidden;
   overflow-y: visible;
@@ -438,6 +447,7 @@ main {
   border-radius: 1em;
   padding: 0.8em 1em;
   font-size: 1rem;
+  resize: none;
 }
 .contact-label textarea {
   min-height: 2in;
@@ -623,5 +633,61 @@ main {
   .contact-form button {
     justify-self: end;
     width: 2.5in;
+  }
+}
+@media all and (min-width: 1200px) {
+  .section-wrapper .aside {
+    width: 8vw;
+  }
+
+  .description {
+    margin-top: 0.8in;
+  }
+
+  .project {
+    padding: 5rem 20vw;
+  }
+  .project p {
+    font-size: 1.25rem;
+  }
+  .project.business p {
+    margin-left: 1in;
+  }
+  .project.gift-center p {
+    margin-right: 1in;
+  }
+
+  .arrow {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    background-color: #8DA9C4;
+    transition: background-color 250ms ease;
+  }
+  .arrow img {
+    max-height: 60%;
+    margin-left: 2px;
+  }
+  .arrow:first-of-type {
+    right: -5rem;
+  }
+  .arrow:last-of-type {
+    transform: translateY(-50%) rotate(180deg);
+    left: -5rem;
+  }
+  .arrow:hover {
+    background-color: #13315C;
+  }
+
+  .form {
+    padding: 1in 14vw;
   }
 }/*# sourceMappingURL=style.css.map */

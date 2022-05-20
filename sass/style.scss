@@ -180,6 +180,7 @@ main {
 
 .main-titles {
     margin-bottom: 1.4in;
+    margin-top: 1rem;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -354,6 +355,14 @@ main {
     clip-path: polygon(0 8vw, 100% 0, 100% 100%, 0 calc(100% - 8vw));
 }
 
+.arrow {
+    display: none;
+}
+
+.slider-container {
+    position: relative;
+}
+
 .slider-wrapper {
     overflow-x: hidden;
     overflow-y: visible;
@@ -451,6 +460,7 @@ main {
         border-radius: 1em;
         padding: .8em 1em;
         font-size: 1rem;
+        resize: none;
     }
 
     textarea {
@@ -651,5 +661,71 @@ main {
             justify-self: end;
             width: 2.5in;
         }
+    }
+}
+
+@media all and (min-width: 1200px) {
+    .section-wrapper .aside {
+        width: 8vw;
+    }
+
+    // about us
+
+    .description {
+        margin-top: .8in;
+    }
+
+    // portfolio
+
+    .project {
+        padding: 5rem 20vw;
+        p {
+            font-size: 1.25rem;
+        }
+        &.business {
+            p {
+                margin-left: 1in;
+            }
+        }
+        &.gift-center {
+            p {
+                margin-right: 1in;
+            }
+        }
+    }
+
+    .arrow {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 3rem;
+        width: 3rem;
+        border-radius: 50%;
+        position: absolute;
+            top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        background-color: $secondary;
+        transition: background-color 250ms ease;
+        img {
+            max-height: 60%;
+            margin-left: 2px;
+        }
+        &:first-of-type {
+            right: -5rem;
+        }
+        &:last-of-type {
+            transform: translateY(-50%) rotate(180deg);
+            left: -5rem;
+        }
+        &:hover {
+            background-color: $primary;
+        }
+    }
+
+    // form 
+    .form {
+        padding: 1in 14vw;
     }
 }
