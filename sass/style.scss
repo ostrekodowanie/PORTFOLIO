@@ -54,6 +54,10 @@ img {
     overflow-y: hidden;
 }
 
+.hidden {
+    display: none;
+}
+
 .wrapper {
     position: relative;
     z-index: -100;

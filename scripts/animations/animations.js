@@ -60,3 +60,32 @@ gsap.to(':root', {
         start: 'top 80%'
     } 
 })
+
+const projectParagraphs = document.querySelectorAll('.project > p')
+
+projectParagraphs.forEach((paragraph, index) => {
+    if (index%2 === 0) {
+        gsap.from(paragraph, {
+            duration: 1,
+            x: '20px',
+            opacity: 0,
+            ease: Power1.easeOut,
+            scrollTrigger: {
+                trigger: paragraph,
+                start: 'top 80%'
+            }
+        })
+    } else {
+        gsap.from(paragraph, {
+            duration: 1,
+            x: '-20px',
+            opacity: 0,
+            ease: Power1.easeOut,
+            scrollTrigger: {
+                trigger: paragraph,
+                start: 'top 80%'
+            }
+        })
+    }
+    
+})
