@@ -519,6 +519,40 @@ main {
     font-size: 90%;
     padding: 0;
   }
+  .navbar a:hover {
+    background-color: #EEF4ED;
+    color: #000000;
+  }
+  .navbar a:hover::after {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 2px;
+    width: 0%;
+    display: block;
+    -webkit-animation: link-hover 150ms ease 50ms forwards;
+            animation: link-hover 150ms ease 50ms forwards;
+  }
+  .navbar a:first-child {
+    background-color: #EEF4ED;
+    color: #0B2545;
+    transform: scale(1.1);
+  }
+  .navbar a:first-child::after {
+    content: "";
+    background-color: #13315C;
+    height: 2px;
+    display: block;
+  }
+  @-webkit-keyframes link-hover {
+    to {
+      width: 100%;
+    }
+  }
+  @keyframes link-hover {
+    to {
+      width: 100%;
+    }
+  }
 
   .section h2 {
     font-size: 1.8rem;

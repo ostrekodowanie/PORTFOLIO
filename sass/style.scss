@@ -543,6 +543,34 @@ main {
             font-size: 90%;
             padding: 0;
         }
+        a:hover {
+            background-color: $background;
+            color: $font;
+        }
+        a:hover::after {
+            content: "";
+            background-color: rgba($font, 0.8);
+            height: 2px;
+            width: 0%;
+            display: block;
+            animation: link-hover 150ms ease 50ms forwards;
+        }
+        a:first-child {
+            background-color: $background;
+            color: $primaryDark;
+            transform: scale(1.1);
+        }
+        a:first-child::after {
+            content: "";
+            background-color: $primary;
+            height: 2px;
+            display: block;
+        }
+        @keyframes link-hover {
+            to {
+                width: 100%;
+            }
+        }
     }
     
     .section {
