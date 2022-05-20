@@ -42,7 +42,7 @@ timeline
 
 gsap.from('.portfolio-paragraph p', {
     duration: 1,
-    y: '-5px',
+    y: '-10px',
     opacity: 0,
     ease: Power1.easeInOut,
     scrollTrigger: {

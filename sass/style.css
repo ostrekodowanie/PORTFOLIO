@@ -288,7 +288,7 @@ main {
   content: "";
   margin-top: 1rem;
   width: var(--custom-width);
-  height: 3px;
+  height: 4px;
   background-color: #13315C;
   display: block;
 }
@@ -393,6 +393,10 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.form h2 {
+  font-size: 1.7rem;
+  margin-bottom: 1em;
 }
 
 .contact-form {
