@@ -13,6 +13,10 @@ $primary: #13315C;
 $primaryDark: #0B2545;
 $secondary: #8DA9C4;
 
+:root {
+    --custom-width: 10%;
+}
+
 html,
 body {
     margin: 0;
@@ -281,13 +285,22 @@ main {
     align-items: center;
     p {
         margin-top: 2rem;
-        padding: 1rem 0;
         text-align: center;
         max-width: 90%;
         line-height: 180%;
-        border-bottom: 3px solid $primary;
-        border-top: 3px solid $primary;
         color: $background;
+    }
+    p::after,
+    p::before {
+        content: "";
+        margin-top: 1rem;
+        width: var(--custom-width);
+        height: 3px;
+        background-color: $primary;
+        display: block;
+    }
+    p::before {
+        margin: 0 0 1rem auto;
     }
 }
 
@@ -305,7 +318,8 @@ main {
         color: $background;
         text-align: center;
         max-width: 90%;
-        line-height: 170%;
+        line-height: 180%;
+        font-size: 1.1rem;
         margin: 1in 0 1in 0;
     }
 }
@@ -389,11 +403,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    h2 {
-        font-weight: 500;
-        color: $background;
-        font-size: 1.4rem;
-    }
+    
 }
 
 .contact-form {

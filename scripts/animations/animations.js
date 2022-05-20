@@ -39,3 +39,24 @@ timeline
         delay: 2.5,
         opacity: 0
     })
+
+gsap.from('.portfolio-paragraph p', {
+    duration: 1,
+    y: '-5px',
+    opacity: 0,
+    ease: Power1.easeInOut,
+    scrollTrigger: {
+        trigger: '.portfolio-paragraph p',
+        start: 'top 80%'
+    }
+})
+
+gsap.to(':root', {
+    '--custom-width': '100%',
+    duration: .8,
+    ease: Power1.easeOut,
+    scrollTrigger: {
+        trigger: '.description p',
+        start: 'top 80%'
+    } 
+})
