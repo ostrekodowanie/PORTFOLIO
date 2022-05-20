@@ -72,6 +72,7 @@ const translateImage = (project, direction) => {
     const automatic = () => {
         position++
         if(position === 3) position = 0
+        imageWidth = document.querySelector('.project-images').clientWidth
         changePosition()
     }
 
@@ -83,12 +84,15 @@ const translateImage = (project, direction) => {
 
     setTimer()
 
-    window.addEventListener('resize', () => {
-        stopTimer()
-        setTimer()
+    let callback = () => {
         imageWidth = document.querySelector('.project-images').clientWidth
         changePosition()
-    })
+        stopTimer()
+        setTimer()
+        window.removeEventListener('resize', callback)
+    }
+
+    window.addEventListener('resize', callback)
 }
 
 
