@@ -48,7 +48,7 @@ img {
 }
 
 .hidden {
-  display: none;
+  visibility: hidden;
 }
 
 .wrapper {
@@ -337,7 +337,7 @@ main {
 .project p {
   margin: 3em 0 0 0;
   text-align: center;
-  max-width: 78%;
+  max-width: min(90%, 4in);
 }
 
 .project.business {
@@ -400,7 +400,6 @@ main {
 .form {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 .form h2 {
   font-size: 1.7rem;
@@ -408,6 +407,8 @@ main {
 }
 
 .contact-form {
+  max-width: 8in;
+  margin: 0 auto;
   position: relative;
   display: grid;
   row-gap: 1.5rem;
@@ -501,8 +502,16 @@ main {
     -webkit-clip-path: polygon(0 7%, 100% 0, 100% 100%, 0 93%);
             clip-path: polygon(0 7%, 100% 0, 100% 100%, 0 93%);
   }
+
+  .contact-form {
+    max-width: 80%;
+  }
 }
 @media all and (min-width: 900px) {
+  .logo img {
+    max-height: 2rem;
+  }
+
   .burger {
     display: none;
   }
