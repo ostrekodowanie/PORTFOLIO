@@ -94,9 +94,11 @@ const translateImage = (project, direction) => {
 
 
 window.addEventListener('load', () => {
-    // business project slider
-    translateImage('business', -1)
+    setTimeout(() => {
+        // business project slider
+        translateImage('business', -1)
 
-    //gift center project slider
-    translateImage('gift-center', -1)
+        //gift center project slider
+        translateImage('gift-center', -1)
+    }, 3000)
 })
