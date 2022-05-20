@@ -346,7 +346,7 @@ main {
     p {
         margin: 3em 0 0 0;
         text-align: center;
-        max-width: 4in;
+        max-width: 78%;
     }
 }
 
@@ -553,7 +553,7 @@ main {
         }
         a:hover::after {
             content: "";
-            background-color: rgba($font, 0.8);
+            background-color: rgba($font, 0.7);
             height: 2px;
             width: 0%;
             display: block;
@@ -564,11 +564,14 @@ main {
             color: $primaryDark;
             transform: scale(1.1);
         }
-        a:first-child::after {
+        a:first-child::after,
+        a:first-child:hover::after {
             content: "";
             background-color: $primary;
             height: 2px;
             display: block;
+            width: 100%;
+            animation: none;
         }
         @keyframes link-hover {
             to {
@@ -606,6 +609,7 @@ main {
         p {
             margin: 0;
             width: 4in;
+            max-width: none;
             font-size: 1.1rem;
             line-height: 170%;
         }

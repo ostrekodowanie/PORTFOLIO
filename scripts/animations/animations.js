@@ -1,3 +1,5 @@
+const screenWidth = window.document.documentElement.clientWidth
+
 const titleLines = gsap.utils.toArray('.main-titles h1 span')
 const subtitle = document.querySelector('.main-titles h2')
 
@@ -63,29 +65,37 @@ gsap.to(':root', {
 
 const projectParagraphs = document.querySelectorAll('.project > p')
 
-projectParagraphs.forEach((paragraph, index) => {
-    if (index%2 === 0) {
-        gsap.from(paragraph, {
-            duration: 1,
-            x: '20px',
-            opacity: 0,
-            ease: Power1.easeOut,
-            scrollTrigger: {
-                trigger: paragraph,
-                start: 'top 80%'
-            }
-        })
-    } else {
-        gsap.from(paragraph, {
-            duration: 1,
-            x: '-20px',
-            opacity: 0,
-            ease: Power1.easeOut,
-            scrollTrigger: {
-                trigger: paragraph,
-                start: 'top 80%'
-            }
-        })
-    }
+const projectAnimation = () => {
+    projectParagraphs.forEach((paragraph, index) => {
+        if (index%2 === 0) {
+            gsap.from(paragraph, {
+                duration: 1,
+                x: '20px',
+                opacity: 0,
+                ease: Power1.easeOut,
+                scrollTrigger: {
+                    trigger: paragraph,
+                    start: 'top 80%'
+                }
+            })
+        } else {
+            gsap.from(paragraph, {
+                duration: 1,
+                x: '-20px',
+                opacity: 0,
+                ease: Power1.easeOut,
+                scrollTrigger: {
+                    trigger: paragraph,
+                    start: 'top 80%'
+                }
+            })
+        }
+    })
+}
+
+if (screenWidth >= 900) {
+    projectAnimation()
+}
+
+
     
-})
