@@ -81,13 +81,14 @@ const translateImage = (project, direction) => {
 
     setTimer()
 
+    let pageHeight = window.document.documentElement.clientHeight
+
     window.addEventListener('resize', () => {
+        
         stopTimer()
         setTimer()
         imageWidth = document.querySelector('.project-images').clientWidth
-        position = 0
-        removeActive()
-        slider.style.transform = `translateX(0)`
+        changePosition()
     })
 }
 
