@@ -8,7 +8,6 @@ const translateImage = (project, direction) => {
     
     const slider = document.querySelector(`.slider.${project}`)
     const navDots = document.querySelectorAll(`.dot.${project}`)
-    // translating based on the active dot
 
     const removeActive = () => {
         let activeDot = document.querySelector(`.active.${project}`)
@@ -40,11 +39,10 @@ const translateImage = (project, direction) => {
         endX;
 
     slider.addEventListener('touchstart', (e) => {
-        
-        
         startX = e.touches[0].clientX;
         e.preventDefault()
         e.stopImmediatePropagation()
+        return stopTimer()
     })
     slider.addEventListener('touchmove', (e) => {
         endX = e.touches[0].clientX;
@@ -52,6 +50,7 @@ const translateImage = (project, direction) => {
         stopTimer()
         e.preventDefault()
         e.stopImmediatePropagation()
+        return stopTimer()
     })
     slider.addEventListener('touchend', (e) => {
         e.preventDefault()
@@ -63,11 +62,11 @@ const translateImage = (project, direction) => {
 
         if (endX > startX) {
             position--;
-            if(position === -1 ) position = 2
+            if (position === -1 ) position = 2
         }
 
         changePosition()
-        setTimer()
+        return setTimer()
     })
 
     // constant changing
