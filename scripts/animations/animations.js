@@ -3,7 +3,7 @@ const screenWidth = window.document.documentElement.clientWidth
 const titleLines = gsap.utils.toArray('.main-titles h1 span')
 const subtitle = document.querySelector('.main-titles h2')
 
-let titleDelay = 1.4;
+let titleDelay = 0.8;
 
 function titleAnimation() {
     titleLines.forEach((title, index) => {

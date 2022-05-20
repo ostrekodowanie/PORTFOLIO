@@ -7,5 +7,5 @@ export default function hideLoadingScreen() {
     setTimeout(() => {
         doc.classList.remove('overflow-disabled')
         loadingScreen.classList.add('loading-inactive')
-    }, 1000)
+    }, 600)
 }
