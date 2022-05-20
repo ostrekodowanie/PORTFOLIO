@@ -18,6 +18,7 @@ const translateImage = (project, direction) => {
     const changePosition = () => {
         removeActive()
         slider.style.transform = `translateX(calc((${imageWidth}px + 3rem)*${position}*${direction}))`
+        console.log(position)
     }
 
     const stopTimer = () => {
@@ -40,17 +41,18 @@ const translateImage = (project, direction) => {
 
     slider.addEventListener('touchstart', (e) => {
         startX = e.touches[0].clientX;
-        e.preventDefault()
-        e.stopImmediatePropagation()
-        return stopTimer()
-    })
-    slider.addEventListener('touchmove', (e) => {
-        endX = e.touches[0].clientX;
-        console.log(e.touches[0].clientX)
         stopTimer()
         e.preventDefault()
         e.stopImmediatePropagation()
-        return stopTimer()
+    })
+    slider.addEventListener('touchmove', (e) => {
+        endX = e.touches[0].clientX;
+        stopTimer()
+        document.addEventListener('scroll', e => {
+            e.preventDefault()
+        })
+        e.preventDefault()
+        e.stopImmediatePropagation()
     })
     slider.addEventListener('touchend', (e) => {
         e.preventDefault()
@@ -62,11 +64,11 @@ const translateImage = (project, direction) => {
 
         if (endX > startX) {
             position--;
-            if (position === -1 ) position = 2
+            if(position === -1 ) position = 2
         }
 
         changePosition()
-        return setTimer()
+        setTimer()
     })
 
     // constant changing
