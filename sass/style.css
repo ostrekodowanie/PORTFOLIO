@@ -567,6 +567,10 @@ main {
     }
   }
 
+  .section-wrapper .aside {
+    width: 4vw;
+  }
+
   .section h2 {
     font-size: 1.8rem;
   }
@@ -603,5 +607,21 @@ main {
   .portfolio-paragraph p {
     font-size: 1.3rem;
     margin: 1.5in 0 1.5in 0;
+  }
+
+  .contact-form {
+    grid-template-columns: 1fr 1fr;
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
+  }
+  .contact-form .span-two {
+    grid-column: span 2;
+  }
+  .contact-form .span-two:first-child {
+    justify-self: center;
+  }
+  .contact-form button {
+    justify-self: end;
+    width: 2.5in;
   }
 }/*# sourceMappingURL=style.css.map */
