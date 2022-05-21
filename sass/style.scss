@@ -729,3 +729,52 @@ main {
         padding: 1in 14vw;
     }
 }
+
+@media all and (min-width: 1550px) {
+    .header {
+        padding: 0 12vw;
+    }
+
+    .navbar {
+        width: 6in;
+        
+    }
+
+    .main-titles {
+        h1 {
+            min-width: 4.5in;
+            
+            font-size: 3rem;
+            span {
+                margin-right: 4.5rem;
+            }
+        }
+        h2 {
+            font-size: 1.8rem;
+        }
+    }
+
+    // portfolio
+
+    .project {
+        padding: 5rem 23vw;
+    }
+
+    // form
+
+    .form {
+        padding: 1in 20vw;
+    }
+
+    .contact-form {
+        input,
+        textarea,
+        button {
+            font-size: 1.2rem;
+        }
+
+        textarea {
+            min-height: 2.5in;
+        }
+    }
+}

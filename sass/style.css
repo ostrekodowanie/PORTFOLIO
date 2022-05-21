@@ -690,4 +690,41 @@ main {
   .form {
     padding: 1in 14vw;
   }
+}
+@media all and (min-width: 1550px) {
+  .header {
+    padding: 0 12vw;
+  }
+
+  .navbar {
+    width: 6in;
+  }
+
+  .main-titles h1 {
+    min-width: 4.5in;
+    font-size: 3rem;
+  }
+  .main-titles h1 span {
+    margin-right: 4.5rem;
+  }
+  .main-titles h2 {
+    font-size: 1.8rem;
+  }
+
+  .project {
+    padding: 5rem 23vw;
+  }
+
+  .form {
+    padding: 1in 20vw;
+  }
+
+  .contact-form input,
+.contact-form textarea,
+.contact-form button {
+    font-size: 1.2rem;
+  }
+  .contact-form textarea {
+    min-height: 2.5in;
+  }
 }/*# sourceMappingURL=style.css.map */
