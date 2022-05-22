@@ -17,6 +17,7 @@ body {
   background-color: #EEF4ED;
   max-width: 100%;
   overflow-x: hidden;
+  scroll-behavior: smooth;
   font-size: 1rem;
   position: relative;
   z-index: -99;
@@ -405,6 +406,7 @@ main {
 .form h2 {
   font-size: 1.7rem;
   margin-bottom: 1em;
+  font-weight: 500;
 }
 
 .contact-form {
@@ -434,6 +436,18 @@ main {
 .contact-form button img {
   max-height: 0.9em;
   margin-left: 0.5em;
+}
+.contact-form .contact-info {
+  display: flex;
+  align-items: center;
+  color: #EEF4ED;
+}
+.contact-form .contact-info img {
+  max-height: 2em;
+  margin-right: 0.5em;
+}
+.contact-form .contact-info:first-of-type {
+  margin-top: 1rem;
 }
 
 .contact-label input,
@@ -627,8 +641,13 @@ main {
     justify-self: center;
   }
   .contact-form button {
+    grid-column: 2/3;
     justify-self: end;
     width: 2.5in;
+  }
+  .contact-form .contact-info:first-of-type {
+    grid-row: 4/5;
+    grid-column: 1/2;
   }
 }
 @media all and (min-width: 1200px) {
@@ -707,6 +726,13 @@ main {
     font-size: 1.8rem;
   }
 
+  .landing-footer h3 {
+    font-size: 1.2rem;
+  }
+  .landing-footer a {
+    font-size: 1rem;
+  }
+
   .project {
     padding: 5rem 23vw;
   }
@@ -714,10 +740,15 @@ main {
   .form {
     padding: 1in 20vw;
   }
+  .form h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5em;
+  }
 
   .contact-form input,
 .contact-form textarea,
-.contact-form button {
+.contact-form button,
+.contact-form .contact-info {
     font-size: 1.2rem;
   }
   .contact-form textarea {

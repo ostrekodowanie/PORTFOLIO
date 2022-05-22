@@ -24,6 +24,7 @@ body {
     background-color: $background;
     max-width: 100%;
     overflow-x: hidden;
+    scroll-behavior: smooth;
     font-size: 1rem;
     position: relative;
     z-index: -99;
@@ -414,6 +415,7 @@ main {
     h2 {
         font-size: 1.7rem;
         margin-bottom: 1em;
+        font-weight: 500;
     }
 }
 
@@ -445,6 +447,18 @@ main {
             max-height: .9em;
             margin-left: .5em;
         }
+    }
+    .contact-info {
+        display: flex;
+        align-items: center;
+        color: $background;
+        img {
+            max-height: 2em;
+            margin-right: .5em;
+        }
+    }
+    .contact-info:first-of-type {
+        margin-top: 1rem;
     }
 }
 
@@ -654,8 +668,13 @@ main {
             justify-self: center;
         }
         button {
+            grid-column: 2 / 3;
             justify-self: end;
             width: 2.5in;
+        }
+        .contact-info:first-of-type {
+            grid-row: 4 / 5;
+            grid-column: 1 / 2;
         }
     }
 }
@@ -750,6 +769,14 @@ main {
         }
     }
 
+    .landing-footer {
+        h3 {
+            font-size: 1.2rem;
+        }
+        a {
+            font-size: 1rem;
+        }
+    }
     // portfolio
 
     .project {
@@ -760,12 +787,17 @@ main {
 
     .form {
         padding: 1in 20vw;
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5em;
+        }
     }
 
     .contact-form {
         input,
         textarea,
-        button {
+        button,
+        .contact-info {
             font-size: 1.2rem;
         }
 

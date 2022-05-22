@@ -26,9 +26,11 @@ const translateImage = (project, direction) => {
     const changePosition = () => {
         removeActive()
         slider.style.transform = `translateX(calc((${imageWidth}px + 3rem)*${position}*${direction}))`
-        setTimeout(() => {
+        let deletePause = () => {
             isPaused = false
-        }, 4000)
+            clearTimeout(deletePause)
+        }
+        setTimeout(deletePause, 6000)
     }
 
     var isPaused = false;
