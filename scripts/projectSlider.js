@@ -17,29 +17,31 @@ const translateImage = (project, direction) => {
         navDots[position].classList.add('active')
     }
 
+    const setTimer = () => {
+        timer = setInterval(() => {
+            if(!isPaused) automatic()
+        }, 3000)
+    }
+
     const changePosition = () => {
         removeActive()
         slider.style.transform = `translateX(calc((${imageWidth}px + 3rem)*${position}*${direction}))`
+        setTimeout(() => {
+            isPaused = false
+        }, 4000)
     }
 
-    const setTimer = () => {
-        clearInterval(timer)
-        return setTimeout(() => {
-            timer = setInterval(automatic, 3000)
-        }, 2000)
-    }
+    var isPaused = false;
 
     setTimer()
-
-    
 
     // changing through dots
 
     navDots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
+            isPaused = true
             position = index
             changePosition()
-            setTimer()
         })
     })
 
@@ -49,17 +51,17 @@ const translateImage = (project, direction) => {
 
     arrows.forEach((arrow, index) => {
         arrow.addEventListener('click', () => {
-            console.log(index)
+            isPaused = true
             if (index === 1) {
                 position--
-                if (position === -1) position = 2
             }
             if (index === 0 ) {
                 position++
-                if(position === 3) position = 0
             }
+
+            if (position === -1) position = 2
+            if(position === 3) position = 0
             changePosition()
-            setTimer()
         })
     })
 
@@ -69,25 +71,22 @@ const translateImage = (project, direction) => {
         endX;
 
     slider.addEventListener('touchstart', e => {
+        isPaused = true
         startX = e.touches[0].clientX;
     })
     slider.addEventListener('touchmove', e => {
         endX = e.touches[0].clientX;
     })
     slider.addEventListener('touchend', () => {
-        
         if (startX > endX) {
             position++;
-            if (position === 3) position = 0
         }
 
         if (endX > startX) {
             position--;
-            if(position === -1 ) position = 2
         }
 
         changePosition()
-        setTimer()
     })
 
     // constant changing
@@ -102,7 +101,6 @@ const translateImage = (project, direction) => {
     let callback = () => {
         imageWidth = document.querySelector('.project-images').clientWidth
         changePosition()
-        setTimer()
         window.removeEventListener('resize', callback)
     }
 
