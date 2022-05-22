@@ -23,7 +23,6 @@ body {
     padding: 0;
     background-color: $background;
     max-width: 100%;
-    overflow-x: hidden;
     scroll-behavior: smooth;
     font-size: 1rem;
     position: relative;
@@ -413,7 +412,6 @@ main {
     display: flex;
     flex-direction: column;
     h2 {
-        font-size: 1.7rem;
         margin-bottom: 1em;
         font-weight: 500;
     }
@@ -544,6 +542,13 @@ main {
 
     // form
 
+    .form {
+        h2 {
+            font-size: 1.6rem;
+            margin-bottom: 1.2em;
+        }
+    }
+
     .contact-form {
         max-width: 80%;
     }
@@ -652,7 +657,7 @@ main {
     .portfolio-paragraph {
         p {
             font-size: 1.3rem;
-            margin: 1.5in 0 1.5in 0;
+            margin: 2in 0 2in 0;
         }
     }
 

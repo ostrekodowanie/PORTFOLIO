@@ -77,9 +77,11 @@ const translateImage = (project, direction) => {
         startX = e.touches[0].clientX;
     })
     slider.addEventListener('touchmove', e => {
+        isPaused = true
         endX = e.touches[0].clientX;
     })
     slider.addEventListener('touchend', () => {
+        isPaused = true
         if (startX > endX) {
             position++;
         }
@@ -87,7 +89,8 @@ const translateImage = (project, direction) => {
         if (endX > startX) {
             position--;
         }
-
+        if (position === -1) position = 2
+        if (position === 3) position = 0
         changePosition()
     })
 
