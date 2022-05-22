@@ -3,7 +3,6 @@ const slider = document.querySelector('.slider')
 const translateImage = (project, direction) => {
 
     let position = 0    // current position
-    let timer;
     let imageWidth = document.querySelector('.project-images').clientWidth
     
     const slider = document.querySelector(`.slider.${project}`)
@@ -17,31 +16,29 @@ const translateImage = (project, direction) => {
         navDots[position].classList.add('active')
     }
 
-    const setTimer = () => {
-        timer = setInterval(() => {
-            if(!isPaused) automatic()
-        }, 3000)
-    }
+    var isPaused = false;
+
+    setInterval(() => {
+        if(!isPaused) automatic()
+    }, 3000)
+
 
     const changePosition = () => {
         removeActive()
         slider.style.transform = `translateX(calc((${imageWidth}px + 3rem)*${position}*${direction}))`
-        let deletePause = () => {
-            isPaused = false
-            clearTimeout(deletePause)
-        }
-        setTimeout(deletePause, 6000)
     }
-
-    var isPaused = false;
-
-    setTimer()
 
     // changing through dots
 
     navDots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
             isPaused = true
+
+            setTimeout(() => {
+                isPaused = false
+                clearTimeout(deletePause)
+            }, 4000)
+
             position = index
             changePosition()
         })
@@ -60,6 +57,11 @@ const translateImage = (project, direction) => {
             if (index === 0 ) {
                 position++
             }
+
+            setTimeout(() => {
+                isPaused = false
+                clearTimeout(deletePause)
+            }, 4000)
 
             if (position === -1) position = 2
             if(position === 3) position = 0
@@ -89,6 +91,12 @@ const translateImage = (project, direction) => {
         if (endX > startX) {
             position--;
         }
+
+        setTimeout(() => {
+            isPaused = false
+            clearTimeout(deletePause)
+        }, 4000)
+
         if (position === -1) position = 2
         if (position === 3) position = 0
         changePosition()
